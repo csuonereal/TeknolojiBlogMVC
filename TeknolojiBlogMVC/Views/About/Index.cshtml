@@ -1,0 +1,26 @@
+﻿@using TeknolojiBlogMVC.Models.entityframework
+@model List<tbl_about>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="content">
+    <div class="wrap">
+        <div class="about">
+            <h3>Technolog nedir?</h3>
+            @foreach (var i in Model)
+            {
+                <img src="@i.PhotoUrl" style="width:1100px;height:600px;" alt="" />
+                <p style="font-size:large;width:1100px;margin-top:30px;">@i.About</p>
+                <h3>Neler yapıyoruz?</h3>
+                <img src="@i.PhotoUrl2" style="width:550px;height:400px;" alt="" />
+                <img src="@i.PhotoUrl3" style="width:550px;height:400px;" alt="" />
+                <p style="font-size:large;width:1100px;margin-top:30px;">@i.About2</p>
+            }
+
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MVCBlogTeknolojiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="MVCBlogTeknolojiEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="SinglePost" ReturnType="Collection(MVCBlogTeknolojiModel.SinglePost_Result)" />
+    <EntitySet Name="tbl_blog" EntityType="MVCBlogTeknolojiModel.tbl_blog" />
+    <EntitySet Name="tbl_comment" EntityType="MVCBlogTeknolojiModel.tbl_comment" />
+    <EntitySet Name="sysdiagrams" EntityType="MVCBlogTeknolojiModel.sysdiagrams" />
+    <AssociationSet Name="FK_tbl_comment_tbl_blog" Association="MVCBlogTeknolojiModel.FK_tbl_comment_tbl_blog">
+      <End Role="tbl_blog" EntitySet="tbl_blog" />
+      <End Role="tbl_comment" EntitySet="tbl_comment" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(MVCBlogTeknolojiModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(MVCBlogTeknolojiModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <EntitySet Name="tbl_about" EntityType="MVCBlogTeknolojiModel.tbl_about" />
+    <EntitySet Name="tbl_contact" EntityType="MVCBlogTeknolojiModel.tbl_contact" />
+  </EntityContainer>
+  <ComplexType Name="SinglePost_Result">
+    <Property Type="Int32" Name="BlogId" Nullable="false" />
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PhotoUrl" Nullable="true" MaxLength="500" />
+    <Property Type="DateTime" Name="ReleaseDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="BlogContent" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="tbl_blog">
+    <Key>
+      <PropertyRef Name="BlogId" />
+    </Key>
+    <Property Name="BlogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="PhotoUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ReleaseDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BlogContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbl_comment" Relationship="MVCBlogTeknolojiModel.FK_tbl_comment_tbl_blog" FromRole="tbl_blog" ToRole="tbl_comment" />
+  </EntityType>
+  <EntityType Name="tbl_comment">
+    <Key>
+      <PropertyRef Name="CommentId" />
+    </Key>
+    <Property Name="CommentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Comment" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="Blog" Type="Int32" />
+    <NavigationProperty Name="tbl_blog" Relationship="MVCBlogTeknolojiModel.FK_tbl_comment_tbl_blog" FromRole="tbl_comment" ToRole="tbl_blog" />
+    <Property Name="Confirmation" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_tbl_comment_tbl_blog">
+    <End Type="MVCBlogTeknolojiModel.tbl_blog" Role="tbl_blog" Multiplicity="0..1" />
+    <End Type="MVCBlogTeknolojiModel.tbl_comment" Role="tbl_comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_blog">
+        <PropertyRef Name="BlogId" />
+      </Principal>
+      <Dependent Role="tbl_comment">
+        <PropertyRef Name="Blog" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="tbl_about">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="About" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PhotoUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="About2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PhotoUrl2" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="About3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PhotoUrl3" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_contact">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,18 @@
+﻿@using TeknolojiBlogMVC.Models.entityframework
+@model List<tbl_blog>
+<div>
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3">
+            <div class="single-post">
+                <img src="@item.PhotoUrl" alt="" style="height:170px;">
+                <h3 style="height:120px;"><a href="/Blog/BlogDetails/@item.BlogId/">@item.Title</a></h3>
+
+                <p style="margin-top:30px;height:200px;">@item.BlogContent.Substring(0, 230)...</p>
+                <a href="/Blog/BlogDetails/@item.BlogId/"><span></span>DEVAMINI OKU</a>
+                <h4><span>@item.ReleaseDate</span></h4>
+            </div>
+        </div>
+    }
+
+</div>

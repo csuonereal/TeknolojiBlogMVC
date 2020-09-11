@@ -1,0 +1,15 @@
+﻿@model TeknolojiBlogMVC.Models.BlogAndComment
+<link href="~/blog resimleri/bootstrap.css" rel="stylesheet" />
+<link href="~/blog resimleri/style.css" rel="stylesheet" />
+<div class="content-form">
+    <h3>Yorum Bırak</h3>
+    <form method="post">
+
+        <input type="text" name="Blog" readonly="readonly" value="@ViewBag.dgr" style="visibility:hidden;" />
+        <input type="text" placeholder="Ad" required name="Name"/>
+        <textarea placeholder="Yorum" required name="Comment"></textarea>
+        <input type="text" name="Date" required value="@DateTime.Now" style="visibility:hidden;" />
+        <input type="submit" value="GÖNDER" />
+
+    </form>
+</div>

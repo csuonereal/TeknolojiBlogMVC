@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/web/style.css" rel="stylesheet" />
+<section class="bg-text-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="bg-text">
+                    <h3>Techno Blog</h3>
+                    <p>Bir teknoloji tutkunu olarak güncel teknoloji haberlerini ve gelişmelerini blogumda düzenli bir şekilde paylaşıyorum.En güncel halleriyle teknolojiyi burada takip edebilirsiniz. </p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container">
+    <div class="row">
+        <div class="blog-post-area-style">
+            <div class="col-md-12" style="margin-top:20px;">
+                @Html.Action("LastPost","Home")
+            </div>
+           @Html.Action("RecentPost","Home")
+        </div>
+    </div>
+</div>
+
