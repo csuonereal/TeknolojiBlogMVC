@@ -73,6 +73,9 @@
     <EntitySetMapping Name="tbl_about">
       <EntityTypeMapping TypeName="MVCBlogTeknolojiModel.tbl_about">
         <MappingFragment StoreEntitySet="tbl_about">
+          <ScalarProperty Name="Title3" ColumnName="Title3" />
+          <ScalarProperty Name="Title2" ColumnName="Title2" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="PhotoUrl3" ColumnName="PhotoUrl3" />
           <ScalarProperty Name="About3" ColumnName="About3" />
           <ScalarProperty Name="PhotoUrl2" ColumnName="PhotoUrl2" />

@@ -21,5 +21,8 @@ namespace TeknolojiBlogMVC.Models.entityframework
         public string PhotoUrl2 { get; set; }
         public string About3 { get; set; }
         public string PhotoUrl3 { get; set; }
+        public string Title { get; set; }
+        public string Title2 { get; set; }
+        public string Title3 { get; set; }
     }
 }

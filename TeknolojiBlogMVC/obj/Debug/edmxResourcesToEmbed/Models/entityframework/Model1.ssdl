@@ -15,10 +15,13 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="50" />
     <Property Name="About" Type="varchar(max)" />
     <Property Name="PhotoUrl" Type="varchar" MaxLength="500" />
+    <Property Name="Title2" Type="varchar" MaxLength="50" />
     <Property Name="About2" Type="varchar(max)" />
     <Property Name="PhotoUrl2" Type="varchar" MaxLength="500" />
+    <Property Name="Title3" Type="varchar" MaxLength="50" />
     <Property Name="About3" Type="varchar(max)" />
     <Property Name="PhotoUrl3" Type="varchar" MaxLength="500" />
   </EntityType>

@@ -20,10 +20,13 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="50" />
           <Property Name="About" Type="varchar(max)" />
           <Property Name="PhotoUrl" Type="varchar" MaxLength="500" />
+          <Property Name="Title2" Type="varchar" MaxLength="50" />
           <Property Name="About2" Type="varchar(max)" />
           <Property Name="PhotoUrl2" Type="varchar" MaxLength="500" />
+          <Property Name="Title3" Type="varchar" MaxLength="50" />
           <Property Name="About3" Type="varchar(max)" />
           <Property Name="PhotoUrl3" Type="varchar" MaxLength="500" />
         </EntityType>
@@ -232,6 +235,9 @@
           <Property Name="PhotoUrl2" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="About3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="PhotoUrl3" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Title2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Title3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="tbl_contact">
           <Key>
@@ -320,6 +326,9 @@
           <EntitySetMapping Name="tbl_about">
             <EntityTypeMapping TypeName="MVCBlogTeknolojiModel.tbl_about">
               <MappingFragment StoreEntitySet="tbl_about">
+                <ScalarProperty Name="Title3" ColumnName="Title3" />
+                <ScalarProperty Name="Title2" ColumnName="Title2" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="PhotoUrl3" ColumnName="PhotoUrl3" />
                 <ScalarProperty Name="About3" ColumnName="About3" />
                 <ScalarProperty Name="PhotoUrl2" ColumnName="PhotoUrl2" />

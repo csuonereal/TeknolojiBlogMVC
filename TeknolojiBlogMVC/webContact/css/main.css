@@ -134,7 +134,7 @@ iframe {
 
 /*//////////////////////////////////////////////////////////////////
 [ Contact 2 ]*/
-.2contact2 {
+.bg-contact2 {
   width: 100%;  
   background-repeat: no-repeat;
   background-position: center center;
@@ -153,11 +153,11 @@ iframe {
 	justify-content: center;
 	align-items: center;
 	padding: 15px;
-	background: rgba(21, 95, 219, 0.80);
-	background: -webkit-linear-gradient(45deg, rgba(21, 95, 219, 0.80), rgba(53, 218, 229, 0.80));
-	background: -o-linear-gradient(45deg, rgba(21, 95, 219, 0.80), rgba(53, 218, 229, 0.80));
-	background: -moz-linear-gradient(45deg, rgba(21, 95, 219, 0.80), rgba(53, 218, 229, 0.80));
-	background: linear-gradient(45deg, rgba(21, 95, 219, 0.80), rgba(53, 218, 229, 0.80));
+	background: rgba(219,21,99,0.8);
+	background: -webkit-linear-gradient(45deg, rgba(0, 174, 213, 0.80), rgba(25, 126, 219, 0.80));
+	background: -o-linear-gradient(45deg, rgba(0, 174, 213, 0.80), rgba(25, 126, 219, 0.80));
+	background: -moz-linear-gradient(45deg, rgba(0, 174, 213, 0.80), rgba(25, 126, 219, 0.80));
+	background: linear-gradient(45deg, rgba(0, 174, 213, 0.80), rgba(25, 126, 219, 0.80));
 }
 
 .wrap-contact2 {
@@ -230,11 +230,11 @@ iframe {
 		-o-transition: all 0.4s;
 		-moz-transition: all 0.4s;
 		transition: all 0.4s;
-		background: rgba(21, 95, 219, 0.80);
-		background: -webkit-linear-gradient(45deg, #448aff, #448aff);
-		background: -o-linear-gradient(45deg, #448aff, #448aff);
-		background: -moz-linear-gradient(45deg, #448aff, #448aff);
-		background: linear-gradient(45deg, #448aff, #448aff);
+		background: rgba(219,21,99,1);
+		background: -webkit-linear-gradient(45deg, #0ea9cc, #356ee5);
+		background: -o-linear-gradient(45deg, #0ea9cc, #356ee5);
+		background: -moz-linear-gradient(45deg,#0ea9cc, #356ee5);
+		background: linear-gradient(45deg,#0ea9cc, #356ee5);
 	}
 
 .focus-input2::after {
@@ -321,11 +321,11 @@ textarea.input2 + .focus-input2::after {
 	z-index: -1;
 	width: 300%;
 	height: 100%;
-	background: rgba(21, 95, 219, 0.80);
-	background: -webkit-linear-gradient(-135deg, #448aff, #44c1ff, #448aff, #44c1ff);
-	background: -o-linear-gradient(-135deg, #448aff, #44c1ff, #448aff, #44c1ff);
-	background: -moz-linear-gradient(-135deg, #448aff, #44c1ff, #448aff, #44c1ff);
-	background: linear-gradient(-135deg, #448aff, #44c1ff, #448aff, #44c1ff);
+	background: rgba(219,21,99,1);
+	background: -webkit-linear-gradient(-135deg, #0ea9cc, #356ee5,#0ea9cc, #356ee5);
+	background: -o-linear-gradient(-135deg, #0ea9cc, #356ee5,#0ea9cc, #356ee5);
+	background: -moz-linear-gradient(-135deg, #0ea9cc, #356ee5,#0ea9cc, #356ee5);
+	background: linear-gradient(-135deg, #0ea9cc, #356ee5,#0ea9cc, #356ee5);
 	top: 0;
 	left: -100%;
 	-webkit-transition: all 0.4s;
@@ -379,32 +379,35 @@ textarea.input2 + .focus-input2::after {
 }
 
 .alert-validate::before {
-	content: attr(data-validate);
-	position: absolute;
-	max-width: 70%;
-	background-color: white;
-	border: 1px solid #c80000;
-	border-radius: 2px;
-	padding: 4px 25px 4px 10px;
-	top: 50%;
-	-webkit-transform: translateY(-50%);
-	-moz-transform: translateY(-50%);
-	-ms-transform: translateY(-50%);
-	-o-transform: translateY(-50%);
-	transform: translateY(-50%);
-	right: 0px;
-	pointer-events: none;
-	font-family: Poppins-Regular;
-	color: #448aff;
-	font-size: 13px;
-	line-height: 1.4;
-	text-align: left;
-	visibility: hidden;
-	opacity: 0;
-	-webkit-transition: opacity 0.4s;
-	-o-transition: opacity 0.4s;
-	-moz-transition: opacity 0.4s;
-	transition: opacity 0.4s;
+  content: attr(data-validate);
+  position: absolute;
+  max-width: 70%;
+  background-color: white;
+  border: 1px solid #c80000;
+  border-radius: 2px;
+  padding: 4px 25px 4px 10px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  right: 0px;
+  pointer-events: none;
+
+  font-family: Poppins-Regular;
+  color: #c80000;
+  font-size: 13px;
+  line-height: 1.4;
+  text-align: left;
+
+  visibility: hidden;
+  opacity: 0;
+
+  -webkit-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  transition: opacity 0.4s;
 }
 
 .alert-validate::after {

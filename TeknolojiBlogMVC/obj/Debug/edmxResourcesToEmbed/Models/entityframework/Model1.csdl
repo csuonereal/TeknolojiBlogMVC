@@ -116,6 +116,9 @@
     <Property Name="PhotoUrl2" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
     <Property Name="About3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="PhotoUrl3" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Title2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Title3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="tbl_contact">
     <Key>
