@@ -1,0 +1,27 @@
+﻿@model TeknolojiBlogMVC.Models.entityframework.tbl_blog
+@{
+    ViewBag.Title = "InsertBlog";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post" class="form-group">
+    <div style="margin-top:15px">
+        <div style="margin-top:15px;">
+            <label >Blog Başlığı:</label>
+            @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
+
+        </div>
+        <div style="margin-top:15px;">
+            <label >Fotoğraf Url</label>
+            @Html.TextBoxFor(m => m.PhotoUrl, new { @class = "form-control" })
+        </div>
+
+        <div style="margin-top:15px">
+            <label>Blog İçeriği</label>
+            @Html.TextAreaFor(m => m.BlogContent, new { @class = "form-control", @style = "height:300px" })
+        </div>
+        <div style="margin-top:15px;">
+            <button class="btn btn-success">Kaydet</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,35 @@
+﻿@using TeknolojiBlogMVC.Models.entityframework
+@model List<tbl_blog>
+@{
+    ViewBag.Title = "AdminBlogs";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<!DOCTYPE html>
+
+<table class="table table-bordered">
+    <thead style="font-style:normal;">
+        <tr>
+            <th>Blog Id</th>
+            <th>Blog Başlık</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody class="table table-hover">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.BlogId</td>
+                <td>@item.Title</td>
+                <td><a href="/Blog/BlogDetails/@item.BlogId" class="btn btn-info" target="_blank">Görüntüle</a></td>
+                <td>
+                    <a href="#" class="btn btn-success" style="color:white;">Güncelle</a>
+                    <a href="/Admin/DeleteBlog/@item.BlogId/" class="btn btn-danger" style="color:white;">Sil</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+<a href="/Admin/InsertBlog/" class="btn btn-primary">Yeni Blog</a>
